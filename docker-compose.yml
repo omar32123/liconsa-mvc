@@ -1,25 +1,9 @@
 services:
-
-  # ── Servidor Web: PHP + Apache ────────────────────────────────────────────
   web:
+    platform: linux/amd64
     build: .
     ports:
-      - "8081:80"
+      - "8082:80"
     volumes:
       - .:/var/www/html
-    depends_on:
-      - db
-    environment:
-      - DB_HOST=proyecto-bulma-db-1
-      - DB_PATH=/firebird/data/inventario.fdb
-
-  # ── Servidor de Base de Datos: Firebird ───────────────────────────────────
-  db:
-    image: jacobalberty/firebird:latest
-    container_name: proyecto-bulma-db-1   # nombre que usa conexion.php
-    ports:
-      - "3050:3050"                        # puerto estándar Firebird (no 3051)
-    environment:
-      - ISC_PASSWORD=masterkey
-    volumes:
-      - ./database:/firebird/data
+      - ./dev-php.ini:/usr/local/etc/php/conf.d/dev-php.ini

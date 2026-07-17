@@ -21,15 +21,6 @@ class Database
         'label'  => 'SERVIDOR REAL (LICONSA)',
     ];
 
-    private const LOCAL = [
-        'host'   => 'proyecto-bulma-db-1',
-        'port'   => 3050,
-        'dbname' => '/firebird/data/inventario.fdb',
-        'user'   => 'SYSDBA',
-        'pass'   => 'masterkey',
-        'label'  => 'DOCKER LOCAL (PRUEBAS)',
-    ];
-
     private function __construct() {}
 
     public static function getInstance(): ?PDO
